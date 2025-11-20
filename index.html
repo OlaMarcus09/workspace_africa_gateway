@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace Africa | Flexible Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#FF5E3A', // Sunset Orange
+                            navy: '#0F172A',   // Deep Navy
+                            dark: '#020617',   // Dark Mode Background
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+        
+        /* Smooth transitions for theme switching */
+        body, div, section, nav, footer, a, button {
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="antialiased bg-white dark:bg-brand-dark text-brand-navy dark:text-white selection:bg-brand-orange selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-brand-dark/90 backdrop-blur-md border-b border-gray-100 dark:border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-orange flex items-center justify-center shadow-lg shadow-brand-orange/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <span class="font-bold text-xl tracking-tight text-brand-navy dark:text-white">Workspace Africa</span>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="#" class="hidden md:block text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-brand-orange transition-colors">Help Center</a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-brand-orange">
+                    <svg id="sun-icon" class="w-5 h-5 text-yellow-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5 text-brand-navy dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 px-6 lg:pt-40 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-8 relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-brand-orange/10 border border-orange-100 dark:border-brand-orange/20 text-brand-orange text-sm font-semibold animate-float">
+                    <span class="relative flex h-2 w-2 mr-1">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
+                    </span>
+                    Live in Ibadan • 7 Partner Spaces
+                </div>
+
+                <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.1] text-brand-navy dark:text-white">
+                    Your Flexible <br>
+                    <span class="text-brand-orange">Workspace Network</span>
+                </h1>
+                
+                <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-lg">
+                    Subscribe to work anywhere. Partner to grow your space. Manage your team's workspace needs.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="http://localhost:3000" class="flex items-center justify-center gap-2 px-8 py-4 bg-brand-orange text-white font-bold rounded-xl shadow-lg shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-1 transition-all">
+                        <i data-lucide="user" class="w-5 h-5"></i>
+                        Member Login
+                    </a>
+                    <a href="http://localhost:3001" class="flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-brand-navy dark:border-white text-brand-navy dark:text-white font-bold rounded-xl hover:bg-brand-navy hover:text-white dark:hover:bg-white dark:hover:text-brand-navy transition-all">
+                        <i data-lucide="building-2" class="w-5 h-5"></i>
+                        Partner Portal
+                    </a>
+                    <a href="http://localhost:3002" class="flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-brand-navy dark:border-white text-brand-navy dark:text-white font-bold rounded-xl hover:bg-brand-navy hover:text-white dark:hover:bg-white dark:hover:text-brand-navy transition-all">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                        Corporate Admin
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -inset-4 bg-gradient-to-r from-brand-orange/20 to-purple-500/20 rounded-[32px] blur-2xl opacity-50 dark:opacity-30"></div>
+                <div class="relative grid grid-cols-2 gap-4 p-4 bg-white/50 dark:bg-white/5 backdrop-blur-xl border border-white/20 rounded-[32px]">
+                    <div class="col-span-1 row-span-1 overflow-hidden rounded-2xl h-48">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="col-span-1 row-span-1 overflow-hidden rounded-2xl h-48">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="col-span-2 row-span-1 overflow-hidden rounded-2xl h-56 relative bg-brand-navy border border-white/10 group">
+                         <div class="absolute inset-0 p-6 flex flex-col gap-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="flex gap-4 h-full">
+                                <div class="w-1/3 h-full bg-white/10 rounded-lg animate-pulse"></div>
+                                <div class="w-2/3 h-full flex flex-col gap-3">
+                                    <div class="h-1/2 bg-white/10 rounded-lg w-full"></div>
+                                    <div class="h-1/2 bg-white/10 rounded-lg w-3/4"></div>
+                                </div>
+                            </div>
+                         </div>
+                         <div class="absolute bottom-4 right-4 bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-full">
+                            Partner Analytics
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 bg-gray-50 dark:bg-[#0B1120] transition-colors">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-left mb-16">
+                <h2 class="text-3xl font-bold text-brand-navy dark:text-white mb-4">Choose Your Path</h2>
+                <div class="h-1 w-20 bg-brand-orange rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="http://localhost:3000" class="group bg-white dark:bg-brand-navy/50 border border-gray-100 dark:border-white/5 p-10 rounded-3xl shadow-xl shadow-gray-200/50 dark:shadow-none hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                    <div class="w-14 h-14 mb-8 rounded-2xl bg-orange-50 dark:bg-brand-orange/10 flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
+                        <i data-lucide="laptop" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-navy dark:text-white mb-4">Work Anywhere</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Access multiple coworking spaces with one subscription. Flexible locations, book on-demand.
+                    </p>
+                    <span class="text-brand-orange font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Get Started <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </span>
+                </a>
+
+                <a href="http://localhost:3001" class="group bg-white dark:bg-brand-navy/50 border border-gray-100 dark:border-white/5 p-10 rounded-3xl shadow-xl shadow-gray-200/50 dark:shadow-none hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                    <div class="w-14 h-14 mb-8 rounded-2xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-brand-navy dark:text-blue-400 group-hover:bg-brand-navy group-hover:text-white transition-colors">
+                        <i data-lucide="store" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-navy dark:text-white mb-4">Grow Your Space</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Join our network. Get ready revenue, new customers, and easy management tools.
+                    </p>
+                    <span class="text-brand-navy dark:text-blue-400 font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Join Network <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </span>
+                </a>
+
+                <a href="http://localhost:3002" class="group bg-white dark:bg-brand-navy/50 border border-gray-100 dark:border-white/5 p-10 rounded-3xl shadow-xl shadow-gray-200/50 dark:shadow-none hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                    <div class="w-14 h-14 mb-8 rounded-2xl bg-purple-50 dark:bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i data-lucide="briefcase" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-navy dark:text-white mb-4">Manage Your Team</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        Centralized workspace solution. Flexible seating, usage analytics, and cost control.
+                    </p>
+                    <span class="text-purple-600 dark:text-purple-400 font-semibold flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Create Account <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white dark:bg-brand-dark border-t border-gray-100 dark:border-white/5 transition-colors">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-navy dark:text-white mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Choose the plan that fits your work style. No hidden fees. Cancel anytime.
+                </p>
+                
+                <div class="mt-8 inline-flex bg-gray-100 dark:bg-white/5 rounded-full p-1 relative">
+                    <div class="w-1/2 h-full absolute left-0 bg-white dark:bg-brand-orange rounded-full shadow-sm transition-all"></div>
+                    <button class="relative z-10 px-6 py-2 text-sm font-semibold text-brand-navy dark:text-white">Monthly</button>
+                    <button class="relative z-10 px-6 py-2 text-sm font-semibold text-gray-500 dark:text-gray-400">Annual <span class="text-xs text-brand-orange ml-1">-15%</span></button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white dark:bg-brand-navy/30 border border-gray-200 dark:border-white/10 rounded-3xl p-8 hover:border-brand-orange/50 transition-all">
+                    <h3 class="text-lg font-bold text-brand-navy dark:text-white mb-2">Flex Basic</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">For the hybrid worker.</p>
+                    <div class="text-3xl font-bold text-brand-navy dark:text-white mb-6">₦22,500<span class="text-base font-normal text-gray-500">/mo</span></div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> 8 Days Access
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> Standard Spaces
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> Community Access
+                        </li>
+                    </ul>
+                    <a href="http://localhost:3000" class="block w-full py-3 px-4 bg-gray-100 dark:bg-white/10 text-brand-navy dark:text-white font-bold text-center rounded-xl hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">Choose Basic</a>
+                </div>
+
+                <div class="relative bg-brand-navy dark:bg-brand-navy border border-brand-navy dark:border-brand-orange rounded-3xl p-8 transform md:-translate-y-4 shadow-2xl shadow-brand-orange/20">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Flex Pro</h3>
+                    <p class="text-gray-400 text-sm mb-6">For the focused professional.</p>
+                    <div class="text-3xl font-bold text-white mb-6">₦45,000<span class="text-base font-normal text-gray-400">/mo</span></div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-sm text-white">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> 16 Days Access
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-white">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> All Spaces (Std + Premium)
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-white">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> Meeting Room Credits
+                        </li>
+                         <li class="flex items-center gap-3 text-sm text-white">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> Priority Support
+                        </li>
+                    </ul>
+                    <a href="http://localhost:3000" class="block w-full py-3 px-4 bg-brand-orange text-white font-bold text-center rounded-xl hover:bg-orange-600 transition-colors shadow-lg shadow-brand-orange/40">Get Started</a>
+                </div>
+
+                <div class="bg-white dark:bg-brand-navy/30 border border-gray-200 dark:border-white/10 rounded-3xl p-8 hover:border-brand-orange/50 transition-all">
+                    <h3 class="text-lg font-bold text-brand-navy dark:text-white mb-2">Flex Unlimited</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Total freedom.</p>
+                    <div class="text-3xl font-bold text-brand-navy dark:text-white mb-6">₦75,000<span class="text-base font-normal text-gray-500">/mo</span></div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> Unlimited Access
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> All Spaces (Std + Premium)
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-orange"></i> Guest Passes (4/mo)
+                        </li>
+                    </ul>
+                    <a href="http://localhost:3000" class="block w-full py-3 px-4 bg-gray-100 dark:bg-white/10 text-brand-navy dark:text-white font-bold text-center rounded-xl hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">Choose Unlimited</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 dark:bg-[#0B1120] border-t border-gray-100 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h4 class="text-lg font-bold text-brand-navy dark:text-white mb-12">Trusted by Premier Spaces in Ibadan</h4>
+            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-70 dark:opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <span class="text-xl font-bold text-gray-800 dark:text-white">Seb's Hub <span class="text-sm font-normal text-gray-500">(Bodija)</span></span>
+                <span class="text-xl font-bold text-gray-800 dark:text-white">Worknub <span class="text-sm font-normal text-gray-500">(Agodi GRA)</span></span>
+                <span class="text-xl font-bold text-gray-800 dark:text-white">Stargate <span class="text-sm font-normal text-gray-500">(Dugbe)</span></span>
+                <span class="text-xl font-bold text-gray-800 dark:text-white">The Bunker</span>
+                <span class="text-xl font-bold text-gray-800 dark:text-white">Nesta <span class="text-sm font-normal text-gray-500">(Akobo)</span></span>
+                <span class="text-xl font-bold text-gray-800 dark:text-white">Cyberhaven</span>
+                <span class="text-xl font-bold text-gray-800 dark:text-white">Atelier</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-navy dark:bg-[#050b14] text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-orange flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <span class="font-bold text-lg">Workspace Africa</span>
+            </div>
+
+            <div class="flex gap-8 text-sm text-gray-400">
+                <a href="#" class="hover:text-white transition-colors">About</a>
+                <a href="#" class="hover:text-white transition-colors">Contact</a>
+                <a href="#" class="hover:text-white transition-colors">Help Center</a>
+                <a href="#" class="hover:text-white transition-colors">Privacy</a>
+            </div>
+
+            <div class="text-sm text-gray-500">
+                © 2025 Workspace Africa. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        } else {
+            html.classList.remove('dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
