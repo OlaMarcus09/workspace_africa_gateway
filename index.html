@@ -33,19 +33,18 @@
     </script>
 
     <style>
-        /* CSS Variables for Theme Switching */
         :root {
-            /* LIGHT MODE (Default if 'dark' class is missing) */
+            /* LIGHT MODE */
             --bg-color: #f8fafc;
             --surface-color: #ffffff;
             --text-color: #0f172a;
             --muted-color: #64748b;
-            --border-color: #e2e8f0;
-            --grid-color: #cbd5e1;
+            --border-color: #cbd5e1; /* Darker border for visibility in light mode */
+            --grid-color: #e2e8f0;
         }
 
         .dark {
-            /* DARK MODE (Active when 'dark' class is present) */
+            /* DARK MODE */
             --bg-color: #020408;
             --surface-color: #0a0f1c;
             --text-color: #e2e8f0;
@@ -57,22 +56,20 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.2s, color 0.2s;
             background-image: 
                 linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
                 linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
             background-size: 40px 40px;
         }
         
-        /* Icons Display Logic */
+        .text-glow { text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); }
+        
+        /* Icon Visibility */
         .icon-sun { display: none; }
         .icon-moon { display: block; }
-        
-        /* When dark mode is active, swap icons */
         .dark .icon-sun { display: block; }
         .dark .icon-moon { display: none; }
-
-        .text-glow { text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); }
 
         /* Radar Effect */
         .radar-sweep {
@@ -89,11 +86,12 @@
         }
         @keyframes sweep { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
 
+        /* Node Animation */
         .node-dot { animation: pulse-node 2s infinite; }
         @keyframes pulse-node {
-            0% { opacity: 0.4; transform: scale(1); }
+            0% { opacity: 0.6; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 10px #FF4500; }
-            100% { opacity: 0.4; transform: scale(1); }
+            100% { opacity: 0.6; transform: scale(1); }
         }
     </style>
 </head>
@@ -109,18 +107,18 @@
             </div>
             <div class="flex items-center space-x-6">
                 <span class="hidden md:inline">LOC: IBADAN</span>
-                <button id="theme-toggle" class="flex items-center hover:text-primary transition-colors focus:outline-none p-2 border border-border rounded-sm bg-surface">
-                    <svg class="w-4 h-4 icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <button id="theme-toggle" class="flex items-center hover:text-primary transition-colors focus:outline-none p-2 border border-border rounded-sm bg-surface shadow-sm">
+                    <svg class="w-4 h-4 icon-moon text-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     <svg class="w-4 h-4 icon-sun text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="flex-1 pt-24 pb-20 px-4 sm:px-6 relative z-10">
+    <main class="flex-1 pt-28 pb-20 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center">
                 <div>
                     <div class="inline-block px-2 py-1 mb-6 border border-primary/30 bg-primary/10 text-primary text-xs font-mono">
                         > SYSTEM_READY
@@ -147,35 +145,48 @@
                     </div>
                 </div>
 
-                <div class="relative h-[350px] bg-surface border border-border rounded-sm overflow-hidden shadow-lg">
-                    <div class="absolute top-4 left-4 text-[10px] font-mono text-primary border border-primary/30 px-2 py-1 z-10 bg-surface/80">
+                <div class="relative h-[350px] bg-surface border border-border rounded-sm overflow-hidden shadow-lg transition-colors duration-300">
+                    <div class="absolute top-4 left-4 text-[10px] font-mono text-primary border border-primary/30 px-2 py-1 z-10 bg-surface/80 backdrop-blur">
                         IBADAN_GRID_VIEW
                     </div>
                     
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-border rounded-full"></div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] border border-border rounded-full"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-border rounded-full opacity-50"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] border border-border rounded-full opacity-50"></div>
                     <div class="radar-sweep"></div>
 
-                    <div class="absolute top-[30%] left-[30%] node-dot" style="animation-delay: 0ms;">
-                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+                    <div class="absolute top-[30%] left-[30%] flex items-center">
+                        <div class="w-2 h-2 bg-primary rounded-full node-dot"></div>
+                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">SEB'S HUB</div>
                     </div>
-                    <div class="absolute top-[50%] left-[20%] node-dot" style="animation-delay: 300ms;">
-                        <div class="w-2 h-2 bg-text rounded-full"></div>
+
+                    <div class="absolute top-[50%] left-[20%] flex items-center">
+                        <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.2s;"></div>
+                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">STARGATE</div>
                     </div>
-                    <div class="absolute top-[25%] right-[30%] node-dot" style="animation-delay: 600ms;">
-                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+
+                    <div class="absolute top-[25%] right-[30%] flex items-center flex-row-reverse">
+                        <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.4s;"></div>
+                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">WORKNUB</div>
                     </div>
-                    <div class="absolute bottom-[20%] left-[40%] node-dot" style="animation-delay: 900ms;">
-                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+
+                    <div class="absolute bottom-[20%] left-[40%] flex items-center">
+                        <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.6s;"></div>
+                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">BUNKER</div>
                     </div>
-                    <div class="absolute top-[20%] right-[15%] node-dot" style="animation-delay: 1200ms;">
-                        <div class="w-2 h-2 bg-text rounded-full"></div>
+
+                    <div class="absolute top-[20%] right-[15%] flex items-center flex-row-reverse">
+                        <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.8s;"></div>
+                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">NESTA</div>
                     </div>
-                    <div class="absolute top-[40%] left-[45%] node-dot" style="animation-delay: 1500ms;">
-                        <div class="w-2 h-2 bg-text rounded-full"></div>
+
+                    <div class="absolute top-[40%] left-[45%] flex items-center">
+                        <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 1s;"></div>
+                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">CYBERHAVEN</div>
                     </div>
-                    <div class="absolute top-[45%] left-[15%] node-dot" style="animation-delay: 1800ms;">
-                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+
+                    <div class="absolute top-[45%] left-[15%] flex items-center flex-row-reverse">
+                        <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 1.2s;"></div>
+                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">ATELIER</div>
                     </div>
 
                     <div class="absolute bottom-4 right-4 text-right z-10">
@@ -194,13 +205,13 @@
                         <p class="text-sm text-muted mb-6 h-10">Book desks. View network status.</p>
                         <div class="flex items-center text-primary text-xs font-mono font-bold group-hover:translate-x-2 transition-transform">[ENTER PORTAL] →</div>
                     </a>
-                    <a href="https://workspace-partner.vercel.app" class="group relative bg-surface border border-border p-8 hover:border-primary transition-all duration-300 shadow-sm">
+                    <a href="https://workspace-partner.vercel.app" class="group relative bg-surface border border-border p-8 hover:border-blue-500 transition-all duration-300 shadow-sm">
                         <div class="text-blue-500 font-mono text-[10px] mb-4 tracking-widest">ACCESS_LEVEL_02</div>
                         <h3 class="text-2xl font-bold text-text mb-2 font-mono">Space Owner</h3>
                         <p class="text-sm text-muted mb-6 h-10">Manage check-ins and revenue.</p>
                         <div class="flex items-center text-blue-500 text-xs font-mono font-bold group-hover:translate-x-2 transition-transform">[MANAGE NODE] →</div>
                     </a>
-                    <a href="https://workspace-corporate.vercel.app" class="group relative bg-surface border border-border p-8 hover:border-primary transition-all duration-300 shadow-sm">
+                    <a href="https://workspace-corporate.vercel.app" class="group relative bg-surface border border-border p-8 hover:border-green-500 transition-all duration-300 shadow-sm">
                         <div class="text-green-500 font-mono text-[10px] mb-4 tracking-widest">ACCESS_LEVEL_03</div>
                         <h3 class="text-2xl font-bold text-text mb-2 font-mono">Corporate</h3>
                         <p class="text-sm text-muted mb-6 h-10">Team management & billing.</p>
@@ -278,13 +289,4 @@
                     </div>
                     <div class="bg-surface border border-border p-4 hover:border-text transition-colors group">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono">Nesta Co-work</div><div class="text-[9px] border border-muted text-muted px-1">STD</div></div>
-                        <div class="text-xs text-muted font-mono mb-4">Akobo, Ibadan</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
-                    </div>
-                    <div class="bg-surface border border-border p-4 hover:border-text transition-colors group">
-                        <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono">Cyberhaven</div><div class="text-[9px] border border-muted text-muted px-1">STD</div></div>
-                        <div class="text-xs text-muted font-mono mb-4">Mokola, Ibadan</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
-                    </div>
-                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group">
-                        <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">Atelier Café</div><div class=
+                     
