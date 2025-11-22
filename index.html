@@ -1,319 +1,133 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workspace Africa | Digital Nomad OS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
                     colors: {
-                        brand: {
-                            orange: '#FF5E3A',
-                            navy: '#0F172A',
-                            dark: '#020617',
-                            border: '#1E293B'
-                        }
+                        background: '#020408',
+                        surface: '#0a0f1c',
+                        primary: '#FF4500',
+                        grid: '#1a202c',
                     },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, rgba(128,128,128,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.1) 1px, transparent 1px)",
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Technical Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #FF5E3A; }
-        
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0,0,0,0.05);
+        body {
+            background-color: #020408;
+            color: #e2e8f0;
+            background-image: 
+                linear-gradient(to right, rgba(30, 41, 59, 0.3) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30, 41, 59, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
-        .dark .glass-panel {
-            background: rgba(2, 6, 23, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .tech-border {
-            position: relative;
-        }
-        .tech-border::before {
-            content: '';
+        .scan-line {
             position: absolute;
-            top: -1px; left: -1px;
-            width: 10px; height: 10px;
-            border-top: 2px solid #FF5E3A;
-            border-left: 2px solid #FF5E3A;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #FF4500;
+            box-shadow: 0 0 15px #FF4500;
+            animation: scan 3s linear infinite;
             opacity: 0.5;
+            pointer-events: none;
         }
-        .tech-border::after {
-            content: '';
-            position: absolute;
-            bottom: -1px; right: -1px;
-            width: 10px; height: 10px;
-            border-bottom: 2px solid #FF5E3A;
-            border-right: 2px solid #FF5E3A;
-            opacity: 0.5;
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
         }
     </style>
 </head>
-<body class="antialiased bg-gray-50 dark:bg-brand-dark text-brand-navy dark:text-gray-300 selection:bg-brand-orange selection:text-white transition-colors duration-300">
+<body class="h-screen flex flex-col overflow-hidden relative selection:bg-primary selection:text-white">
 
-    <div class="fixed inset-0 z-0 pointer-events-none bg-grid-pattern bg-[length:40px_40px]"></div>
+    <div class="scan-line"></div>
 
-    <nav class="fixed w-full z-50 bg-white/90 dark:bg-brand-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-brand-border font-mono text-xs">
-        <div class="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between">
-            <div class="flex items-center gap-6">
-                <div class="flex items-center gap-2 font-bold text-brand-navy dark:text-white tracking-wider">
-                    <span class="w-2 h-2 bg-brand-orange rounded-full animate-pulse"></span>
-                    WORKSPACE_AFRICA_OS
-                </div>
-                <div class="hidden md:flex gap-4 text-gray-500">
-                    <span>LOC: IBADAN [7.37°N, 3.94°E]</span>
-                    <span>NET_STATUS: 7 NODES ACTIVE</span>
-                </div>
+    <header class="w-full border-b border-white/10 bg-background/90 backdrop-blur-md z-50">
+        <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                <span class="font-mono text-xs font-bold tracking-widest text-white">WORKSPACE_AFRICA_OS</span>
             </div>
-
-            <div class="flex items-center gap-4">
-                 <button id="theme-toggle" class="hover:text-brand-orange transition-colors uppercase">
-                    [SWITCH_THEME]
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
-            
-            <div>
-                <div class="inline-block border border-brand-orange/30 bg-brand-orange/10 text-brand-orange px-3 py-1 text-xs font-mono mb-6">
-                    > INITIALIZING NOMAD PROTOCOL...
-                </div>
-                
-                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-brand-navy dark:text-white mb-6 font-sans">
-                    The Operating System <br />
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-orange-600">For Digital Nomads.</span>
-                </h1>
-                
-                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed border-l-2 border-brand-orange pl-6 mb-10 font-mono">
-                    Connect to physical infrastructure. <br>
-                    Execute work from anywhere. <br>
-                    One protocol. Infinite access.
-                </p>
-
-                <div class="grid grid-cols-3 gap-4 border-t border-gray-200 dark:border-brand-border pt-8 font-mono">
-                    <div>
-                        <div class="text-2xl font-bold text-brand-navy dark:text-white">07</div>
-                        <div class="text-[10px] uppercase text-gray-500">Active Hubs</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold text-brand-navy dark:text-white">24h</div>
-                        <div class="text-[10px] uppercase text-gray-500">Access Window</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold text-brand-navy dark:text-white">100%</div>
-                        <div class="text-[10px] uppercase text-gray-500">Freedom</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative h-[400px] glass-panel rounded-lg border border-gray-200 dark:border-white/10 flex items-center justify-center tech-border">
-                <div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
-                
-                <div class="relative z-10 text-center">
-                    <div class="w-24 h-24 mx-auto bg-brand-orange/10 rounded-full border border-brand-orange flex items-center justify-center mb-4 animate-pulse-slow">
-                        <i data-lucide="globe" class="w-10 h-10 text-brand-orange"></i>
-                    </div>
-                    <div class="font-mono text-xs text-brand-orange">Connection Established</div>
-                    <div class="font-bold text-xl text-brand-navy dark:text-white">IBADAN_NETWORK</div>
-                </div>
-
-                <div class="absolute top-10 left-10 px-3 py-1 bg-white dark:bg-brand-navy border border-brand-orange text-[10px] font-mono rounded shadow-lg">BODIJA</div>
-                <div class="absolute bottom-20 right-10 px-3 py-1 bg-white dark:bg-brand-navy border border-gray-500 text-[10px] font-mono rounded shadow-lg">DUGBE</div>
-                <div class="absolute top-1/2 right-0 px-3 py-1 bg-white dark:bg-brand-navy border border-gray-500 text-[10px] font-mono rounded shadow-lg">AKOBO</div>
+            <div class="font-mono text-[10px] text-slate-500">
+                NET_STATUS: <span class="text-green-500">ONLINE</span> • LOC: IBADAN [7.37°N, 3.94°E]
             </div>
         </div>
     </header>
 
-    <section class="py-20 bg-white dark:bg-[#050b14] border-y border-gray-200 dark:border-brand-border transition-colors">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="font-mono text-sm text-gray-500 mb-8 flex items-center gap-2">
-                <i data-lucide="terminal" class="w-4 h-4"></i> SELECT_INTERFACE_MODULE
-            </h2>
+    <main class="flex-1 flex items-center justify-center relative z-10 p-6">
+        <div class="max-w-5xl w-full">
+            
+            <div class="mb-12">
+                <div class="text-primary font-mono text-xs mb-2">> SELECT_INTERFACE_MODULE</div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">The Operating System<br>For Digital Nomads.</h1>
+                <p class="text-slate-400 max-w-xl text-lg">Connect to physical infrastructure. Execute work from anywhere. One protocol. Infinite access.</p>
+            </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <a href="http://localhost:3000" class="group glass-panel p-8 rounded-xl hover:border-brand-orange transition-all duration-300 relative overflow-hidden">
-                    <div class="font-mono text-[10px] text-brand-orange mb-4">ACCESS_LEVEL_01</div>
-                    <h3 class="text-2xl font-bold text-brand-navy dark:text-white font-sans mb-2">Nomad Access</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-8 font-mono">Generate keys for spaces. Book desks. View network status.</p>
-                    <div class="flex items-center gap-2 text-xs font-bold text-brand-navy dark:text-white group-hover:text-brand-orange transition-colors uppercase tracking-wider">
-                        [Enter Portal] <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <a href="https://workspace-nomad.vercel.app" class="group block bg-surface border border-white/10 p-8 hover:border-primary transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </div>
-                    <div class="absolute bottom-0 left-0 h-1 w-0 bg-brand-orange group-hover:w-full transition-all duration-500"></div>
+                    <div class="text-primary font-mono text-[10px] mb-4 tracking-widest">ACCESS_LEVEL_01</div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 transition-transform">Nomad Access</h3>
+                    <p class="text-sm text-slate-500 mb-6">Generate keys for spaces. Book desks. View network status.</p>
+                    <div class="inline-flex items-center text-xs font-mono text-primary group-hover:underline">
+                        [ENTER PORTAL]
+                    </div>
                 </a>
 
-                <a href="http://localhost:3001" class="group glass-panel p-8 rounded-xl hover:border-blue-500 transition-all duration-300 relative overflow-hidden">
-                    <div class="font-mono text-[10px] text-blue-500 mb-4">ACCESS_LEVEL_02</div>
-                    <h3 class="text-2xl font-bold text-brand-navy dark:text-white font-sans mb-2">Space Owner</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-8 font-mono">Validate check-ins. Monitor occupancy rates. Track revenue.</p>
-                    <div class="flex items-center gap-2 text-xs font-bold text-brand-navy dark:text-white group-hover:text-blue-500 transition-colors uppercase tracking-wider">
-                        [Manage Node] <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                <a href="https://workspace-partner.vercel.app" class="group block bg-surface border border-white/10 p-8 hover:border-blue-500 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                     </div>
-                    <div class="absolute bottom-0 left-0 h-1 w-0 bg-blue-500 group-hover:w-full transition-all duration-500"></div>
+                    <div class="text-blue-500 font-mono text-[10px] mb-4 tracking-widest">ACCESS_LEVEL_02</div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 transition-transform">Space Owner</h3>
+                    <p class="text-sm text-slate-500 mb-6">Validate check-ins. Monitor occupancy rates. Track revenue.</p>
+                    <div class="inline-flex items-center text-xs font-mono text-blue-500 group-hover:underline">
+                        [MANAGE NODE]
+                    </div>
                 </a>
 
-                <a href="http://localhost:3002" class="group glass-panel p-8 rounded-xl hover:border-purple-500 transition-all duration-300 relative overflow-hidden">
-                    <div class="font-mono text-[10px] text-purple-500 mb-4">ACCESS_LEVEL_03</div>
-                    <h3 class="text-2xl font-bold text-brand-navy dark:text-white font-sans mb-2">Corporate</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-8 font-mono">Manage distributed teams. allocate budgets. Centralized billing.</p>
-                    <div class="flex items-center gap-2 text-xs font-bold text-brand-navy dark:text-white group-hover:text-purple-500 transition-colors uppercase tracking-wider">
-                        [Team Login] <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                <a href="https://workspace-corporate.vercel.app" class="group block bg-surface border border-white/10 p-8 hover:border-green-500 transition-all duration-300 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                     </div>
-                    <div class="absolute bottom-0 left-0 h-1 w-0 bg-purple-500 group-hover:w-full transition-all duration-500"></div>
+                    <div class="text-green-500 font-mono text-[10px] mb-4 tracking-widest">ACCESS_LEVEL_03</div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 transition-transform">Corporate</h3>
+                    <p class="text-sm text-slate-500 mb-6">Manage distributed teams. Allocate budgets. Centralized billing.</p>
+                    <div class="inline-flex items-center text-xs font-mono text-green-500 group-hover:underline">
+                        [TEAM LOGIN]
+                    </div>
                 </a>
+
             </div>
+
         </div>
-    </section>
+    </main>
 
-    <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-brand-navy dark:text-white mb-4 font-sans">Select Access Protocol</h2>
-                <p class="font-mono text-gray-500">Choose your bandwidth.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="glass-panel p-8 rounded-xl border-t-4 border-gray-400 hover:translate-y-[-4px] transition-all">
-                    <h3 class="font-mono text-sm text-gray-500 mb-2">FLEX_BASIC</h3>
-                    <div class="text-3xl font-bold text-brand-navy dark:text-white mb-6 font-sans">₦22,500<span class="text-sm font-normal text-gray-500">/mo</span></div>
-                    <ul class="space-y-3 font-mono text-xs text-gray-600 dark:text-gray-400 mb-8">
-                        <li class="flex gap-2"><span class="text-green-500">✓</span> 8 Days Access</li>
-                        <li class="flex gap-2"><span class="text-green-500">✓</span> Standard Spaces</li>
-                        <li class="flex gap-2"><span class="text-green-500">✓</span> Community WiFi</li>
-                    </ul>
-                    <a href="http://localhost:3000" class="block w-full py-3 border border-gray-300 dark:border-gray-600 text-center font-mono text-xs font-bold hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">ACTIVATE_BASIC</a>
-                </div>
-
-                <div class="glass-panel p-8 rounded-xl border-t-4 border-brand-orange shadow-2xl shadow-brand-orange/10 hover:translate-y-[-4px] transition-all relative">
-                    <div class="absolute top-0 right-0 bg-brand-orange text-white text-[10px] font-mono px-2 py-1">RECOMMENDED</div>
-                    <h3 class="font-mono text-sm text-brand-orange mb-2">FLEX_PRO</h3>
-                    <div class="text-3xl font-bold text-brand-navy dark:text-white mb-6 font-sans">₦45,000<span class="text-sm font-normal text-gray-500">/mo</span></div>
-                    <ul class="space-y-3 font-mono text-xs text-gray-600 dark:text-gray-400 mb-8">
-                        <li class="flex gap-2"><span class="text-brand-orange">✓</span> 16 Days Access</li>
-                        <li class="flex gap-2"><span class="text-brand-orange">✓</span> All Spaces (Std + Premium)</li>
-                        <li class="flex gap-2"><span class="text-brand-orange">✓</span> Meeting Room Credits</li>
-                    </ul>
-                    <a href="http://localhost:3000" class="block w-full py-3 bg-brand-orange text-white text-center font-mono text-xs font-bold hover:bg-orange-600 transition-colors">ACTIVATE_PRO</a>
-                </div>
-
-                <div class="glass-panel p-8 rounded-xl border-t-4 border-gray-400 hover:translate-y-[-4px] transition-all">
-                    <h3 class="font-mono text-sm text-gray-500 mb-2">FLEX_UNLIMITED</h3>
-                    <div class="text-3xl font-bold text-brand-navy dark:text-white mb-6 font-sans">₦75,000<span class="text-sm font-normal text-gray-500">/mo</span></div>
-                    <ul class="space-y-3 font-mono text-xs text-gray-600 dark:text-gray-400 mb-8">
-                        <li class="flex gap-2"><span class="text-green-500">✓</span> Unlimited Days</li>
-                        <li class="flex gap-2"><span class="text-green-500">✓</span> All Locations</li>
-                        <li class="flex gap-2"><span class="text-green-500">✓</span> Guest Passes (4/mo)</li>
-                    </ul>
-                    <a href="http://localhost:3000" class="block w-full py-3 border border-gray-300 dark:border-gray-600 text-center font-mono text-xs font-bold hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">ACTIVATE_MAX</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 border-t border-gray-200 dark:border-brand-border">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between mb-8">
-                <h2 class="text-sm font-mono text-gray-500 uppercase">Active Network Nodes (Ibadan)</h2>
-                <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    <span class="text-xs font-mono text-green-500">LIVE</span>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 font-mono text-xs">
-                <div class="p-4 border border-gray-200 dark:border-brand-border rounded hover:border-brand-orange cursor-default transition-colors bg-white dark:bg-transparent">
-                    <div class="font-bold text-brand-navy dark:text-white">SEB'S HUB</div>
-                    <div class="text-gray-500 mt-1">Bodija</div>
-                </div>
-                <div class="p-4 border border-gray-200 dark:border-brand-border rounded hover:border-brand-orange cursor-default transition-colors bg-white dark:bg-transparent">
-                    <div class="font-bold text-brand-navy dark:text-white">WORKNUB</div>
-                    <div class="text-gray-500 mt-1">Agodi GRA</div>
-                </div>
-                <div class="p-4 border border-gray-200 dark:border-brand-border rounded hover:border-brand-orange cursor-default transition-colors bg-white dark:bg-transparent">
-                    <div class="font-bold text-brand-navy dark:text-white">STARGATE</div>
-                    <div class="text-gray-500 mt-1">Dugbe</div>
-                </div>
-                <div class="p-4 border border-gray-200 dark:border-brand-border rounded hover:border-brand-orange cursor-default transition-colors bg-white dark:bg-transparent">
-                    <div class="font-bold text-brand-navy dark:text-white">THE BUNKER</div>
-                    <div class="text-gray-500 mt-1">Ring Rd</div>
-                </div>
-                <div class="p-4 border border-gray-200 dark:border-brand-border rounded hover:border-brand-orange cursor-default transition-colors bg-white dark:bg-transparent">
-                    <div class="font-bold text-brand-navy dark:text-white">NESTA</div>
-                    <div class="text-gray-500 mt-1">Akobo</div>
-                </div>
-                <div class="p-4 border border-gray-200 dark:border-brand-border rounded hover:border-brand-orange cursor-default transition-colors bg-white dark:bg-transparent">
-                    <div class="font-bold text-brand-navy dark:text-white">CYBERHAVEN</div>
-                    <div class="text-gray-500 mt-1">Mokola</div>
-                </div>
-                <div class="p-4 border border-gray-200 dark:border-brand-border rounded hover:border-brand-orange cursor-default transition-colors bg-white dark:bg-transparent">
-                    <div class="font-bold text-brand-navy dark:text-white">ATELIER</div>
-                    <div class="text-gray-500 mt-1">Jericho</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-brand-navy dark:bg-[#020617] text-white py-12 border-t border-white/10 font-mono text-xs">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div>
-                SYSTEM_ID: WA-CORE-2025 <br>
-                COPYRIGHT (C) WORKSPACE AFRICA
-            </div>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-brand-orange">[LEGAL]</a>
-                <a href="#" class="hover:text-brand-orange">[PRIVACY]</a>
-                <a href="#" class="hover:text-brand-orange">[STATUS]</a>
+    <footer class="border-t border-white/5 py-6 bg-background relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center text-[10px] font-mono text-slate-600">
+            <div>&copy; 2025 WORKSPACE AFRICA. ALL RIGHTS RESERVED.</div>
+            <div class="flex space-x-4">
+                <span>V.2.0.4 (STABLE)</span>
+                <span>SERVER: ONLINE</span>
             </div>
         </div>
     </footer>
 
-    <script>
-        lucide.createIcons();
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-
-        // Default to Dark Mode for "Analytical" vibe, but respect user choice
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage))) {
-            html.classList.add('dark');
-        } else {
-            html.classList.remove('dark');
-        }
-
-        themeToggle.addEventListener('click', function() {
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-            } else {
-                html.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-            }
-        });
-    </script>
 </body>
 </html>
