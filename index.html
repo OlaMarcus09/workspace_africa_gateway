@@ -34,17 +34,17 @@
 
     <style>
         :root {
-            /* LIGHT MODE VARIABLES */
+            /* LIGHT MODE */
             --bg-color: #f8fafc;
             --surface-color: #ffffff;
             --text-color: #0f172a;
             --muted-color: #64748b;
-            --border-color: #cbd5e1;
+            --border-color: #cbd5e1; 
             --grid-color: #e2e8f0;
         }
 
         .dark {
-            /* DARK MODE VARIABLES */
+            /* DARK MODE */
             --bg-color: #020408;
             --surface-color: #0a0f1c;
             --text-color: #e2e8f0;
@@ -56,7 +56,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.2s, color 0.2s;
             background-image: 
                 linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
                 linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
@@ -65,11 +65,9 @@
         
         .text-glow { text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); }
         
-        /* Toggle Icon Logic */
+        /* Icon Visibility */
         .icon-sun { display: none; }
         .icon-moon { display: block; }
-        
-        /* When dark class is present on HTML tag */
         .dark .icon-sun { display: block; }
         .dark .icon-moon { display: none; }
 
@@ -88,7 +86,7 @@
         }
         @keyframes sweep { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
 
-        /* Pulsing Nodes */
+        /* Node Animation */
         .node-dot { animation: pulse-node 2s infinite; }
         @keyframes pulse-node {
             0% { opacity: 0.6; transform: scale(1); }
@@ -109,7 +107,7 @@
             </div>
             <div class="flex items-center space-x-6">
                 <span class="hidden md:inline">LOC: IBADAN</span>
-                <button id="theme-toggle" class="flex items-center justify-center w-8 h-8 border border-border rounded-sm bg-surface hover:border-primary transition-colors focus:outline-none">
+                <button id="theme-toggle" class="flex items-center hover:text-primary transition-colors focus:outline-none p-2 border border-border rounded-sm bg-surface shadow-sm">
                     <svg class="w-4 h-4 icon-moon text-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     <svg class="w-4 h-4 icon-sun text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                 </button>
@@ -117,7 +115,7 @@
         </div>
     </header>
 
-    <main class="flex-1 pt-28 pb-20 px-4 sm:px-6 relative z-10">
+    <main class="flex-1 pt-28 pb-20 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center">
@@ -158,31 +156,37 @@
 
                     <div class="absolute top-[30%] left-[30%] flex items-center">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot"></div>
-                        <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 border border-border">SEB'S HUB</div>
+                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">SEB'S HUB</div>
                     </div>
+
                     <div class="absolute top-[50%] left-[20%] flex items-center">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.2s;"></div>
-                        <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 border border-border">STARGATE</div>
+                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">STARGATE</div>
                     </div>
+
                     <div class="absolute top-[25%] right-[30%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.4s;"></div>
-                        <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 border border-border">WORKNUB</div>
+                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">WORKNUB</div>
                     </div>
+
                     <div class="absolute bottom-[20%] left-[40%] flex items-center">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.6s;"></div>
-                        <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 border border-border">BUNKER</div>
+                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">BUNKER</div>
                     </div>
+
                     <div class="absolute top-[20%] right-[15%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.8s;"></div>
-                        <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 border border-border">NESTA</div>
+                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">NESTA</div>
                     </div>
+
                     <div class="absolute top-[40%] left-[45%] flex items-center">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 1s;"></div>
-                        <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 border border-border">CYBERHAVEN</div>
+                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">CYBERHAVEN</div>
                     </div>
+
                     <div class="absolute top-[45%] left-[15%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 1.2s;"></div>
-                        <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 border border-border">ATELIER</div>
+                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">ATELIER</div>
                     </div>
 
                     <div class="absolute bottom-4 right-4 text-right z-10">
@@ -224,7 +228,7 @@
                 <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     <div class="bg-surface border border-border p-8 flex flex-col hover:border-muted transition-colors shadow-sm">
                         <div class="text-muted font-mono text-xs uppercase mb-4 tracking-widest">FLEX_BASIC</div>
-                        <div class="mb-8"><span class="text-4xl font-bold text-text">₦22,500</span><span class="text-muted font-mono text-xs">/mo</span></div>
+                        <div class="mb-8"><span class="text-4xl font-bold text-text">₦27,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
                         <ul class="space-y-4 mb-8 flex-1 text-sm text-muted font-mono">
                             <li class="flex items-center">✓ 8 Days Access</li>
                             <li class="flex items-center">✓ Standard Spaces</li>
@@ -235,7 +239,7 @@
                     <div class="bg-surface border-t-2 border-t-primary border-x border-b border-border p-8 flex flex-col relative transform md:-translate-y-4 shadow-2xl">
                         <div class="absolute top-0 right-0 bg-primary text-white text-[9px] font-mono font-bold px-2 py-1 uppercase">Recommended</div>
                         <div class="text-primary font-mono text-xs uppercase mb-4 tracking-widest">FLEX_PRO</div>
-                        <div class="mb-8"><span class="text-5xl font-bold text-text">₦45,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
+                        <div class="mb-8"><span class="text-5xl font-bold text-text">₦55,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
                         <ul class="space-y-4 mb-8 flex-1 text-sm text-text font-mono">
                             <li class="flex items-center"><span class="text-primary mr-2">✓</span> 16 Days Access</li>
                             <li class="flex items-center"><span class="text-primary mr-2">✓</span> All Spaces (Std + Premium)</li>
@@ -263,37 +267,37 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group">
+                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">Seb's Hub</div><div class="text-[9px] border border-primary text-primary px-1">PREM</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Bodija, Ibadan</div>
                         <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
                     </div>
-                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group">
+                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">Worknub</div><div class="text-[9px] border border-primary text-primary px-1">PREM</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Agodi GRA, Ibadan</div>
                         <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
                     </div>
-                    <div class="bg-surface border border-border p-4 hover:border-text transition-colors group">
+                    <div class="bg-surface border border-border p-4 hover:border-text transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono">Stargate</div><div class="text-[9px] border border-muted text-muted px-1">STD</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Cocoa House, Dugbe</div>
                         <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
                     </div>
-                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group">
+                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">The Bunker</div><div class="text-[9px] border border-primary text-primary px-1">PREM</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Ring Road, Ibadan</div>
                         <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
                     </div>
-                    <div class="bg-surface border border-border p-4 hover:border-text transition-colors group">
+                    <div class="bg-surface border border-border p-4 hover:border-text transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono">Nesta Co-work</div><div class="text-[9px] border border-muted text-muted px-1">STD</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Akobo, Ibadan</div>
                         <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
                     </div>
-                    <div class="bg-surface border border-border p-4 hover:border-text transition-colors group">
+                    <div class="bg-surface border border-border p-4 hover:border-text transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono">Cyberhaven</div><div class="text-[9px] border border-muted text-muted px-1">STD</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Mokola, Ibadan</div>
                         <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
                     </div>
-                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group">
+                    <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">Atelier Café</div><div class="text-[9px] border border-primary text-primary px-1">PREM</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Jericho, Ibadan</div>
                         <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
@@ -319,7 +323,7 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
-        // SIMPLE TOGGLE (NO PREFERENCES SAVED)
+        // SIMPLE TOGGLE: No saving, defaults to class="dark" in HTML
         toggleBtn.addEventListener('click', () => {
             html.classList.toggle('dark');
         });
