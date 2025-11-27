@@ -115,7 +115,7 @@
         </div>
     </header>
 
-    <main class="flex-1 pt-28 pb-20 px-6 relative z-10">
+    <main class="flex-1 pt-28 pb-20 px-4 sm:px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center">
@@ -150,40 +150,34 @@
                         IBADAN_GRID_VIEW
                     </div>
                     
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-border rounded-full opacity-50"></div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] border border-border rounded-full opacity-50"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-border rounded-full"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] border border-border rounded-full"></div>
                     <div class="radar-sweep"></div>
 
                     <div class="absolute top-[30%] left-[30%] flex items-center">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot"></div>
                         <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">SEB'S HUB</div>
                     </div>
-
                     <div class="absolute top-[50%] left-[20%] flex items-center">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.2s;"></div>
                         <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">STARGATE</div>
                     </div>
-
                     <div class="absolute top-[25%] right-[30%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.4s;"></div>
                         <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">WORKNUB</div>
                     </div>
-
                     <div class="absolute bottom-[20%] left-[40%] flex items-center">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.6s;"></div>
                         <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">BUNKER</div>
                     </div>
-
                     <div class="absolute top-[20%] right-[15%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.8s;"></div>
                         <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">NESTA</div>
                     </div>
-
                     <div class="absolute top-[40%] left-[45%] flex items-center">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 1s;"></div>
                         <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">CYBERHAVEN</div>
                     </div>
-
                     <div class="absolute top-[45%] left-[15%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 1.2s;"></div>
                         <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">ATELIER</div>
@@ -225,37 +219,47 @@
                     <h2 class="text-3xl font-bold text-text mb-2 font-mono">Access Protocols</h2>
                     <p class="text-muted font-mono text-xs tracking-widest uppercase">Choose your bandwidth.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    <div class="bg-surface border border-border p-8 flex flex-col hover:border-muted transition-colors shadow-sm">
+                <div class="grid md:grid-cols-4 gap-4 max-w-7xl mx-auto">
+                    <div class="bg-surface border border-border p-6 flex flex-col hover:border-muted transition-colors shadow-sm">
+                        <div class="text-muted font-mono text-xs uppercase mb-4 tracking-widest">DAY_PASS</div>
+                        <div class="mb-6"><span class="text-3xl font-bold text-text">₦4,500</span><span class="text-muted font-mono text-xs">/day</span></div>
+                        <ul class="space-y-3 mb-6 flex-1 text-xs text-muted font-mono">
+                            <li class="flex items-center">✓ 1 Day Access</li>
+                            <li class="flex items-center">✓ Std + Premium</li>
+                            <li class="flex items-center">✓ Instant Entry</li>
+                        </ul>
+                        <button class="w-full py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">GET PASS</button>
+                    </div>
+                    <div class="bg-surface border border-border p-6 flex flex-col hover:border-muted transition-colors shadow-sm">
                         <div class="text-muted font-mono text-xs uppercase mb-4 tracking-widest">FLEX_BASIC</div>
-                        <div class="mb-8"><span class="text-4xl font-bold text-text">₦27,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
-                        <ul class="space-y-4 mb-8 flex-1 text-sm text-muted font-mono">
+                        <div class="mb-6"><span class="text-3xl font-bold text-text">₦27,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
+                        <ul class="space-y-3 mb-6 flex-1 text-xs text-muted font-mono">
                             <li class="flex items-center">✓ 8 Days Access</li>
                             <li class="flex items-center">✓ Standard Spaces</li>
                             <li class="flex items-center">✓ Community WiFi</li>
                         </ul>
-                        <button class="w-full py-4 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">ACTIVATE_BASIC</button>
+                        <button class="w-full py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">SUBSCRIBE</button>
                     </div>
-                    <div class="bg-surface border-t-2 border-t-primary border-x border-b border-border p-8 flex flex-col relative transform md:-translate-y-4 shadow-2xl">
+                    <div class="bg-surface border-t-2 border-t-primary border-x border-b border-border p-6 flex flex-col relative transform md:-translate-y-2 shadow-2xl">
                         <div class="absolute top-0 right-0 bg-primary text-white text-[9px] font-mono font-bold px-2 py-1 uppercase">Recommended</div>
                         <div class="text-primary font-mono text-xs uppercase mb-4 tracking-widest">FLEX_PRO</div>
-                        <div class="mb-8"><span class="text-5xl font-bold text-text">₦55,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
-                        <ul class="space-y-4 mb-8 flex-1 text-sm text-text font-mono">
+                        <div class="mb-6"><span class="text-4xl font-bold text-text">₦55,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
+                        <ul class="space-y-3 mb-6 flex-1 text-xs text-text font-mono">
                             <li class="flex items-center"><span class="text-primary mr-2">✓</span> 16 Days Access</li>
-                            <li class="flex items-center"><span class="text-primary mr-2">✓</span> All Spaces (Std + Premium)</li>
+                            <li class="flex items-center"><span class="text-primary mr-2">✓</span> Std + Premium</li>
                             <li class="flex items-center"><span class="text-primary mr-2">✓</span> Meeting Credits</li>
                         </ul>
-                        <button class="w-full py-4 bg-primary text-white font-mono text-xs font-bold hover:opacity-90 transition-all uppercase">ACTIVATE_PRO</button>
+                        <button class="w-full py-3 bg-primary text-white font-mono text-xs font-bold hover:opacity-90 transition-all uppercase">SUBSCRIBE</button>
                     </div>
-                    <div class="bg-surface border border-border p-8 flex flex-col hover:border-muted transition-colors shadow-sm">
+                    <div class="bg-surface border border-border p-6 flex flex-col hover:border-muted transition-colors shadow-sm">
                         <div class="text-muted font-mono text-xs uppercase mb-4 tracking-widest">FLEX_UNLIMITED</div>
-                        <div class="mb-8"><span class="text-4xl font-bold text-text">₦75,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
-                        <ul class="space-y-4 mb-8 flex-1 text-sm text-muted font-mono">
+                        <div class="mb-6"><span class="text-3xl font-bold text-text">₦90,000</span><span class="text-muted font-mono text-xs">/mo</span></div>
+                        <ul class="space-y-3 mb-6 flex-1 text-xs text-muted font-mono">
                             <li class="flex items-center">✓ Unlimited Days</li>
                             <li class="flex items-center">✓ All Locations</li>
-                            <li class="flex items-center">✓ Guest Passes (4/mo)</li>
+                            <li class="flex items-center">✓ Guest Passes (2/mo)</li>
                         </ul>
-                        <button class="w-full py-4 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">ACTIVATE_MAX</button>
+                        <button class="w-full py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">SUBSCRIBE</button>
                     </div>
                 </div>
             </div>
@@ -323,7 +327,7 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
-        // SIMPLE TOGGLE: No saving, defaults to class="dark" in HTML
+        // Toggle Logic
         toggleBtn.addEventListener('click', () => {
             html.classList.toggle('dark');
         });
