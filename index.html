@@ -34,17 +34,17 @@
 
     <style>
         :root {
-            /* LIGHT MODE */
+            /* LIGHT MODE VARIABLES */
             --bg-color: #f8fafc;
             --surface-color: #ffffff;
             --text-color: #0f172a;
             --muted-color: #64748b;
-            --border-color: #cbd5e1; 
+            --border-color: #cbd5e1;
             --grid-color: #e2e8f0;
         }
 
         .dark {
-            /* DARK MODE */
+            /* DARK MODE VARIABLES */
             --bg-color: #020408;
             --surface-color: #0a0f1c;
             --text-color: #e2e8f0;
@@ -56,7 +56,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color 0.2s, color 0.2s;
+            transition: background-color 0.3s ease, color 0.3s ease;
             background-image: 
                 linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
                 linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
@@ -65,9 +65,11 @@
         
         .text-glow { text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); }
         
-        /* Icon Visibility */
+        /* Toggle Icon Logic */
         .icon-sun { display: none; }
         .icon-moon { display: block; }
+        
+        /* When dark class is present on HTML tag */
         .dark .icon-sun { display: block; }
         .dark .icon-moon { display: none; }
 
@@ -86,7 +88,7 @@
         }
         @keyframes sweep { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
 
-        /* Node Animation */
+        /* Pulsing Nodes */
         .node-dot { animation: pulse-node 2s infinite; }
         @keyframes pulse-node {
             0% { opacity: 0.6; transform: scale(1); }
@@ -102,12 +104,13 @@
             <div class="flex items-center space-x-4">
                 <span class="flex items-center text-text">
                     <span class="w-2 h-2 bg-primary rounded-full animate-pulse mr-2"></span>
-                    <span class="hidden sm:inline">WORKSPACE_OS</span>
+                    <span class="hidden sm:inline">WORKSPACE_AFRICA_OS</span>
                 </span>
+                <span class="hidden md:inline">LOC: IBADAN [7.37°N, 3.94°E]</span>
             </div>
             <div class="flex items-center space-x-6">
-                <span class="hidden md:inline">LOC: IBADAN</span>
-                <button id="theme-toggle" class="flex items-center hover:text-primary transition-colors focus:outline-none p-2 border border-border rounded-sm bg-surface shadow-sm">
+                <span class="hidden sm:inline">NET_STATUS: 7 NODES ACTIVE</span>
+                <button id="theme-toggle" class="flex items-center justify-center w-8 h-8 border border-border rounded-sm bg-surface hover:border-primary transition-colors focus:outline-none">
                     <svg class="w-4 h-4 icon-moon text-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     <svg class="w-4 h-4 icon-sun text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                 </button>
@@ -150,37 +153,43 @@
                         IBADAN_GRID_VIEW
                     </div>
                     
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-border rounded-full"></div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] border border-border rounded-full"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-border rounded-full opacity-50"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] border border-border rounded-full opacity-50"></div>
                     <div class="radar-sweep"></div>
 
                     <div class="absolute top-[30%] left-[30%] flex items-center">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot"></div>
-                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">SEB'S HUB</div>
+                        <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">SEB'S HUB</div>
                     </div>
+
                     <div class="absolute top-[50%] left-[20%] flex items-center">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.2s;"></div>
-                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">STARGATE</div>
+                        <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">STARGATE</div>
                     </div>
+
                     <div class="absolute top-[25%] right-[30%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.4s;"></div>
-                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">WORKNUB</div>
+                        <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">WORKNUB</div>
                     </div>
+
                     <div class="absolute bottom-[20%] left-[40%] flex items-center">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.6s;"></div>
-                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">BUNKER</div>
+                        <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">BUNKER</div>
                     </div>
+
                     <div class="absolute top-[20%] right-[15%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.8s;"></div>
-                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">NESTA</div>
+                        <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">NESTA</div>
                     </div>
+
                     <div class="absolute top-[40%] left-[45%] flex items-center">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 1s;"></div>
-                        <div class="ml-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">CYBERHAVEN</div>
+                        <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">CYBERHAVEN</div>
                     </div>
+
                     <div class="absolute top-[45%] left-[15%] flex items-center flex-row-reverse">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 1.2s;"></div>
-                        <div class="mr-2 text-[9px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">ATELIER</div>
+                        <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">ATELIER</div>
                     </div>
 
                     <div class="absolute bottom-4 right-4 text-right z-10">
@@ -327,7 +336,7 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
-        // Toggle Logic
+        // Simple Toggle Logic
         toggleBtn.addEventListener('click', () => {
             html.classList.toggle('dark');
         });
