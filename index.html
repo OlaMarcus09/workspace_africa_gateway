@@ -6,6 +6,7 @@
     <title>Workspace Africa | Digital Nomad OS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔶</text></svg>">
     
     <script>
         tailwind.config = {
@@ -68,8 +69,6 @@
         /* Toggle Icon Logic */
         .icon-sun { display: none; }
         .icon-moon { display: block; }
-        
-        /* When dark class is present on HTML tag */
         .dark .icon-sun { display: block; }
         .dark .icon-moon { display: none; }
 
@@ -148,7 +147,7 @@
                     </div>
                 </div>
 
-                <div class="relative h-[350px] bg-surface border border-border rounded-sm overflow-hidden shadow-lg transition-colors duration-300">
+                <div class="relative h-[350px] bg-surface border border-border rounded-sm overflow-hidden shadow-lg transition-colors duration-300 group">
                     <div class="absolute top-4 left-4 text-[10px] font-mono text-primary border border-primary/30 px-2 py-1 z-10 bg-surface/80 backdrop-blur">
                         IBADAN_GRID_VIEW
                     </div>
@@ -157,42 +156,42 @@
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] border border-border rounded-full opacity-50"></div>
                     <div class="radar-sweep"></div>
 
-                    <div class="absolute top-[30%] left-[30%] flex items-center">
+                    <a href="https://workspace-nomad.vercel.app" class="absolute top-[30%] left-[30%] flex items-center hover:scale-110 transition-transform cursor-pointer z-10" title="Seb's Hub">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot"></div>
                         <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">SEB'S HUB</div>
-                    </div>
+                    </a>
 
-                    <div class="absolute top-[50%] left-[20%] flex items-center">
+                    <a href="https://workspace-nomad.vercel.app" class="absolute top-[50%] left-[20%] flex items-center hover:scale-110 transition-transform cursor-pointer z-10" title="Stargate">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.2s;"></div>
                         <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">STARGATE</div>
-                    </div>
+                    </a>
 
-                    <div class="absolute top-[25%] right-[30%] flex items-center flex-row-reverse">
+                    <a href="https://workspace-nomad.vercel.app" class="absolute top-[25%] right-[30%] flex items-center flex-row-reverse hover:scale-110 transition-transform cursor-pointer z-10" title="Worknub">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.4s;"></div>
                         <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">WORKNUB</div>
-                    </div>
+                    </a>
 
-                    <div class="absolute bottom-[20%] left-[40%] flex items-center">
+                    <a href="https://workspace-nomad.vercel.app" class="absolute bottom-[20%] left-[40%] flex items-center hover:scale-110 transition-transform cursor-pointer z-10" title="The Bunker">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 0.6s;"></div>
                         <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">BUNKER</div>
-                    </div>
+                    </a>
 
-                    <div class="absolute top-[20%] right-[15%] flex items-center flex-row-reverse">
+                    <a href="https://workspace-nomad.vercel.app" class="absolute top-[20%] right-[15%] flex items-center flex-row-reverse hover:scale-110 transition-transform cursor-pointer z-10" title="Nesta">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 0.8s;"></div>
                         <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">NESTA</div>
-                    </div>
+                    </a>
 
-                    <div class="absolute top-[40%] left-[45%] flex items-center">
+                    <a href="https://workspace-nomad.vercel.app" class="absolute top-[40%] left-[45%] flex items-center hover:scale-110 transition-transform cursor-pointer z-10" title="Cyberhaven">
                         <div class="w-2 h-2 bg-text rounded-full node-dot" style="animation-delay: 1s;"></div>
                         <div class="ml-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">CYBERHAVEN</div>
-                    </div>
+                    </a>
 
-                    <div class="absolute top-[45%] left-[15%] flex items-center flex-row-reverse">
+                    <a href="https://workspace-nomad.vercel.app" class="absolute top-[45%] left-[15%] flex items-center flex-row-reverse hover:scale-110 transition-transform cursor-pointer z-10" title="Atelier">
                         <div class="w-2 h-2 bg-primary rounded-full node-dot" style="animation-delay: 1.2s;"></div>
                         <div class="mr-2 text-[8px] font-mono font-bold text-text bg-surface/80 px-1 rounded border border-border">ATELIER</div>
-                    </div>
+                    </a>
 
-                    <div class="absolute bottom-4 right-4 text-right z-10">
+                    <div class="absolute bottom-4 right-4 text-right z-10 pointer-events-none">
                         <div class="text-primary font-mono text-xs font-bold">7 NODES ONLINE</div>
                         <div class="text-[9px] text-muted font-mono">SCANNING SECTOR...</div>
                     </div>
@@ -237,7 +236,7 @@
                             <li class="flex items-center">✓ Std + Premium</li>
                             <li class="flex items-center">✓ Instant Entry</li>
                         </ul>
-                        <button class="w-full py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">GET PASS</button>
+                        <a href="https://workspace-nomad.vercel.app/plans" class="block w-full text-center py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">GET PASS</a>
                     </div>
                     <div class="bg-surface border border-border p-6 flex flex-col hover:border-muted transition-colors shadow-sm">
                         <div class="text-muted font-mono text-xs uppercase mb-4 tracking-widest">FLEX_BASIC</div>
@@ -247,7 +246,7 @@
                             <li class="flex items-center">✓ Standard Spaces</li>
                             <li class="flex items-center">✓ Community WiFi</li>
                         </ul>
-                        <button class="w-full py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">SUBSCRIBE</button>
+                         <a href="https://workspace-nomad.vercel.app/plans" class="block w-full text-center py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">SUBSCRIBE</a>
                     </div>
                     <div class="bg-surface border-t-2 border-t-primary border-x border-b border-border p-6 flex flex-col relative transform md:-translate-y-2 shadow-2xl">
                         <div class="absolute top-0 right-0 bg-primary text-white text-[9px] font-mono font-bold px-2 py-1 uppercase">Recommended</div>
@@ -258,7 +257,7 @@
                             <li class="flex items-center"><span class="text-primary mr-2">✓</span> Std + Premium</li>
                             <li class="flex items-center"><span class="text-primary mr-2">✓</span> Meeting Credits</li>
                         </ul>
-                        <button class="w-full py-3 bg-primary text-white font-mono text-xs font-bold hover:opacity-90 transition-all uppercase">SUBSCRIBE</button>
+                         <a href="https://workspace-nomad.vercel.app/plans" class="block w-full text-center py-3 bg-primary text-white font-mono text-xs font-bold hover:opacity-90 transition-all uppercase">SUBSCRIBE</a>
                     </div>
                     <div class="bg-surface border border-border p-6 flex flex-col hover:border-muted transition-colors shadow-sm">
                         <div class="text-muted font-mono text-xs uppercase mb-4 tracking-widest">FLEX_UNLIMITED</div>
@@ -268,7 +267,7 @@
                             <li class="flex items-center">✓ All Locations</li>
                             <li class="flex items-center">✓ Guest Passes (2/mo)</li>
                         </ul>
-                        <button class="w-full py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">SUBSCRIBE</button>
+                         <a href="https://workspace-nomad.vercel.app/plans" class="block w-full text-center py-3 border border-border text-muted font-mono text-xs font-bold hover:border-text hover:text-text transition-all uppercase">SUBSCRIBE</a>
                     </div>
                 </div>
             </div>
@@ -283,37 +282,37 @@
                     <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">Seb's Hub</div><div class="text-[9px] border border-primary text-primary px-1">PREM</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Bodija, Ibadan</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
+                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 animate-pulse"></span> ONLINE</div>
                     </div>
                     <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">Worknub</div><div class="text-[9px] border border-primary text-primary px-1">PREM</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Agodi GRA, Ibadan</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
+                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 animate-pulse"></span> ONLINE</div>
                     </div>
                     <div class="bg-surface border border-border p-4 hover:border-text transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono">Stargate</div><div class="text-[9px] border border-muted text-muted px-1">STD</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Cocoa House, Dugbe</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
+                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 animate-pulse"></span> ONLINE</div>
                     </div>
                     <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">The Bunker</div><div class="text-[9px] border border-primary text-primary px-1">PREM</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Ring Road, Ibadan</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
+                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 animate-pulse"></span> ONLINE</div>
                     </div>
                     <div class="bg-surface border border-border p-4 hover:border-text transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono">Nesta Co-work</div><div class="text-[9px] border border-muted text-muted px-1">STD</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Akobo, Ibadan</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
+                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 animate-pulse"></span> ONLINE</div>
                     </div>
                     <div class="bg-surface border border-border p-4 hover:border-text transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono">Cyberhaven</div><div class="text-[9px] border border-muted text-muted px-1">STD</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Mokola, Ibadan</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
+                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 animate-pulse"></span> ONLINE</div>
                     </div>
                     <div class="bg-surface border border-border p-4 hover:border-primary transition-colors group shadow-sm">
                         <div class="flex justify-between mb-2"><div class="text-text font-bold font-mono group-hover:text-primary">Atelier Café</div><div class="text-[9px] border border-primary text-primary px-1">PREM</div></div>
                         <div class="text-xs text-muted font-mono mb-4">Jericho, Ibadan</div>
-                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span> ONLINE</div>
+                        <div class="flex items-center text-[10px] text-green-500 font-mono"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 animate-pulse"></span> ONLINE</div>
                     </div>
                 </div>
             </div>
@@ -327,7 +326,7 @@
             <div class="flex space-x-6 mt-2 md:mt-0">
                 <a href="terms.html" class="hover:text-text">TERMS</a>
                 <a href="privacy.html" class="hover:text-text">PRIVACY</a>
-                <a href="#" class="hover:text-text">STATUS</a>
+                <a href="https://workspace-partner.vercel.app" class="hover:text-text">STATUS</a>
             </div>
         </div>
     </footer>
@@ -336,7 +335,7 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
-        // Simple Toggle Logic
+        // Toggle Logic
         toggleBtn.addEventListener('click', () => {
             html.classList.toggle('dark');
         });
