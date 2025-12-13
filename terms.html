@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Workspace Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#020408',
+                        surface: '#0a0f1c',
+                        primary: '#FF4500',
+                        text: '#e2e8f0',
+                        muted: '#94a3b8',
+                        border: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>body { background-color: #020408; color: #e2e8f0; }</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="w-full border-b border-border bg-background/90 backdrop-blur-md fixed top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between text-[10px] font-mono tracking-widest text-muted">
+            <a href="index.html" class="hover:text-primary transition-colors">← BACK_TO_OS</a>
+            <span>LEGAL_DOC_01</span>
+        </div>
+    </header>
+
+    <main class="flex-1 pt-24 pb-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl font-bold text-white mb-2 font-mono">Terms of Service</h1>
+            <p class="text-xs text-primary font-mono mb-12 uppercase tracking-widest">Last Updated: December 2025</p>
+
+            <div class="space-y-8 text-sm text-muted leading-relaxed">
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">1. Access Protocol</h2>
+                    <p>By accessing the Workspace Africa Operating System (the "Platform"), you agree to abide by these terms. The Platform acts as an intermediary layer between Digital Nomads ("Users") and Physical Infrastructure Nodes ("Partners").</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">2. Membership & Payments</h2>
+                    <p>Access is granted via active subscription or day pass. All payments are processed securely via Paystack. Subscriptions are non-refundable once the billing cycle commences, except in cases of proven service failure by a Partner Node.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">3. Code of Conduct</h2>
+                    <p>Users must respect the local rules of each Partner Node (e.g., quiet zones, meeting room policies). Workspace Africa reserves the right to revoke the Access Token of any user found violating community standards without refund.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">4. Liability Limitation</h2>
+                    <p>Workspace Africa validates the connectivity and status of Partner Nodes but is not liable for temporary infrastructure failures (e.g., city-wide power outages, ISP downtime) at the physical location.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">5. Account Security</h2>
+                    <p>Your Access Token (QR/Numeric) is non-transferable. Sharing your token with non-members will result in immediate account termination.</p>
+                </section>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-border text-center">
+                <p class="text-xs font-mono text-muted">END_OF_FILE</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

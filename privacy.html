@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Workspace Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#020408',
+                        surface: '#0a0f1c',
+                        primary: '#FF4500',
+                        text: '#e2e8f0',
+                        muted: '#94a3b8',
+                        border: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>body { background-color: #020408; color: #e2e8f0; }</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="w-full border-b border-border bg-background/90 backdrop-blur-md fixed top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between text-[10px] font-mono tracking-widest text-muted">
+            <a href="index.html" class="hover:text-primary transition-colors">← BACK_TO_OS</a>
+            <span>LEGAL_DOC_02</span>
+        </div>
+    </header>
+
+    <main class="flex-1 pt-24 pb-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl font-bold text-white mb-2 font-mono">Privacy Protocol</h1>
+            <p class="text-xs text-primary font-mono mb-12 uppercase tracking-widest">Data Protection Level: High</p>
+
+            <div class="space-y-8 text-sm text-muted leading-relaxed">
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">1. Data Collection</h2>
+                    <p>We collect only the essential data required to facilitate access: Name, Email Address, and Payment History. We do not track your physical location outside of active Check-in events at Partner Nodes.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">2. Data Usage</h2>
+                    <p>Your Check-in data is used solely to: (a) Validate your entry permissions, (b) Calculate payouts for Partner Nodes, and (c) Provide you with personal usage analytics.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">3. Third-Party Sharing</h2>
+                    <p>We do not sell your personal data. Limited data (Name, Plan Status) is shared with Partner Nodes solely at the moment of Check-in for verification purposes.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-lg font-bold text-white mb-3">4. Security</h2>
+                    <p>All user data is encrypted in transit and at rest using industry-standard protocols. Payment details are handled exclusively by Paystack; Workspace Africa does not store credit card information.</p>
+                </section>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-border text-center">
+                <p class="text-xs font-mono text-muted">END_OF_FILE</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
